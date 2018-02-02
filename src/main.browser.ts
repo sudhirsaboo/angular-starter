@@ -10,12 +10,21 @@ import { environment } from 'environments/environment';
  */
 import { AppModule } from './app';
 
+// Sudhir i18n
+import { enableProdMode, TRANSLATIONS, TRANSLATIONS_FORMAT, LOCALE_ID } from '@angular/core';
+import { TRANSLATION_EN as TRANSLATION } from './resources/i18n/messages.en';
+// Sudhir
 /**
  * Bootstrap our Angular app with a top level NgModule
  */
 export function main(): Promise<any> {
   return platformBrowserDynamic()
-    .bootstrapModule(AppModule)
+    .bootstrapModule(AppModule,
+      {providers: [
+        {provide: TRANSLATIONS, useValue: TRANSLATION},
+        {provide: TRANSLATIONS_FORMAT, useValue:  'xlf'},
+        {provide: LOCALE_ID, useValue: 'en'}
+      ]})
     .then(environment.decorateModuleRef)
     .catch((err) => console.error(err));
 }
