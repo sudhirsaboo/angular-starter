@@ -79,7 +79,11 @@
     "webdriver:start": "node ./node_modules/protractor/bin/webdriver-manager start",
     "webdriver:update": "node ./node_modules/protractor/bin/webdriver-manager update",
     "webpack-dev-server": "node --max_old_space_size=4096 node_modules/webpack-dev-server/bin/webpack-dev-server.js",
-    "webpack": "node --max_old_space_size=4096 node_modules/webpack/bin/webpack.js"
+    "webpack": "node --max_old_space_size=4096 node_modules/webpack/bin/webpack.js",
+    "i18n:extract": "ng-xi18n",
+    "i18n:create": "gulp i18n-init --languages",
+    "i18n:update": "gulp i18n-update",
+    "i18n:compile": "gulp i18n-xlf2ts"
   },
   "dependencies": {
     "@angular/animations": "~5.1.0",
@@ -163,7 +167,13 @@
     "webpack-dev-middleware": "^1.10.1",
     "webpack-dev-server": "~2.7.1",
     "webpack-dll-bundles-plugin": "^1.0.0-beta.5",
-    "webpack-merge": "~4.1.0"
+    "webpack-merge": "~4.1.0",
+    "gulp": "^3.9.1",
+    "gulp-cheerio": "^0.6.2",
+    "gulp-modify-file": "^0.1.0",
+    "gulp-remove-empty-lines": "0.0.8",
+    "gulp-rename": "^1.2.2",
+    "pretty-data": "^0.40.0"
   },
   "repository": {
     "type": "git",
